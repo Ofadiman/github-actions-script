@@ -22,6 +22,27 @@ runs:
       with:
         go-version: stable
 
+    - name: Debug
+      shell: bash
+      run: |
+        echo "working directory at action path"
+        ls -lrt ${{ github.action_path }} || true
+        ls -lrt ${{ github.action_path }}/scripts/ || true
+        echo ""
+
+        echo "golang script at action path"
+        cat ${{ github.action_path }}/${{ inputs.script }} || true
+        echo ""
+
+        echo "working directory at relative path"
+        ls -lrt || true
+        ls -lrt scripts/ || true
+        echo ""
+
+        echo "golang script at relative path"
+        cat ${{ inputs.script }} || true
+        echo ""
+
     - name: Run script
       shell: bash
-      run: go run ${{ github.action_path }}/${{ inputs.script }}
+      run: go run ${{ inputs.script }}

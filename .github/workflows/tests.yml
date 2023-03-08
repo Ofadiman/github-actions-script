@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Run golang script
         id: golang_script
-        uses: Ofadiman/golang-script@v1.0.3
+        uses: Ofadiman/golang-script@main
         with:
           script: scripts/main.go
 
