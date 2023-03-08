@@ -1,4 +1,4 @@
-name: Golang script tests
+name: Custom action tests
 
 on:
   workflow_dispatch:
