@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
+	fmt.Println(os.Environ())
+
 	fmt.Println("golang script executed")
 
 	input := os.Getenv("INPUT_MESSAGE")
