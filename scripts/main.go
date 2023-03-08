@@ -9,7 +9,7 @@ import (
 func main() {
 	fmt.Println("golang script executed")
 
-	input := os.Getenv("INPUT_SCRIPT")
+	input := os.Getenv("INPUT_MESSAGE")
 	fmt.Printf("selected file: %v\n", input)
 
 	githubOutput := os.Getenv("GITHUB_OUTPUT")

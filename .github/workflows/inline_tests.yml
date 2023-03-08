@@ -2,6 +2,11 @@ name: Inline tests
 
 on:
   workflow_dispatch:
+    inputs:
+      message:
+        description: Message to log
+        required: true
+        default: Hello world
 
 jobs:
   tests:
