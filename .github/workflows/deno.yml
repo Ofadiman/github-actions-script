@@ -21,9 +21,9 @@ jobs:
           deno-version: 1.31.1
 
       - name: Run script
-        id: golang_script
-        run: deno run --allow-env --allow-read --allow-write .github/scripts/deno.ts --message "${{ inputs.message }}" --foo bar
+        id: script
+        run: deno run --allow-env --allow-read --allow-write .github/scripts/deno.ts --message "${{ inputs.message }}"
 
-      - name: Log golang script output
+      - name: Script output
         run: |
-          echo "output was: ${{ steps.golang_script.outputs.value }}"
+          echo "script output: ${{ steps.script.outputs.value }}"

@@ -18,12 +18,12 @@ jobs:
       - name: Setup golang
         uses: actions/setup-go@v3
         with:
-          go-version: stable
+          go-version: 1.20.2
 
       - name: Run script
-        id: golang_script
-        run: go run .github/scripts/golang.go -message "${{ inputs.message }}" -foo bar
+        id: script
+        run: go run .github/scripts/golang.go -message "${{ inputs.message }}"
 
-      - name: Log golang script output
+      - name: Script output
         run: |
-          echo "output was: ${{ steps.golang_script.outputs.value }}"
+          echo "script output: ${{ steps.script.outputs.value }}"
