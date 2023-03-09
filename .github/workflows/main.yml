@@ -1,4 +1,4 @@
-name: Inline tests
+name: Main
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
         default: Hello world
 
 jobs:
-  tests:
+  main:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
