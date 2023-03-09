@@ -22,7 +22,7 @@ jobs:
 
       - name: Run script
         id: golang_script
-        run: go run scripts/main.go
+        run: go run scripts/main.go -message "${{ inputs.message }}"
 
       - name: Log golang script output
         run: |
