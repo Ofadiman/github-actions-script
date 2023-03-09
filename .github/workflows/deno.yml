@@ -1,4 +1,4 @@
-name: Main
+name: Deno
 
 on:
   workflow_dispatch:
@@ -15,14 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3.3.0
 
-      - name: Setup go
-        uses: actions/setup-go@v3
+      - name: Setup deno
+        uses: denoland/setup-deno@v1.1.1
         with:
-          go-version: stable
+          deno-version: 1.31.1
 
       - name: Run script
         id: golang_script
-        run: go run .github/scripts/main.go -message "${{ inputs.message }}" -foo bar
+        run: deno run --allow-env --allow-read --allow-write .github/scripts/deno.ts --message "${{ inputs.message }}" --foo bar
 
       - name: Log golang script output
         run: |

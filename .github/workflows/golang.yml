@@ -1,0 +1,29 @@
+name: Golang
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: Message to log
+        required: true
+        default: Hello world
+
+jobs:
+  main:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.3.0
+
+      - name: Setup golang
+        uses: actions/setup-go@v3
+        with:
+          go-version: stable
+
+      - name: Run script
+        id: golang_script
+        run: go run .github/scripts/golang.go -message "${{ inputs.message }}" -foo bar
+
+      - name: Log golang script output
+        run: |
+          echo "output was: ${{ steps.golang_script.outputs.value }}"
